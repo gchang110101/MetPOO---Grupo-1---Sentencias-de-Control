@@ -1,0 +1,14 @@
+Metodología y Programación Orientada a Objetos I
+
+Grupo 1: 
+- Gabriel Chang
+- Camilo Herradora
+- Megan Bougle
+- Laura Cuevas
+- Carlos Gurdian
+
+Sentencias de Control:
+- Aritméticos
+- Lógicos
+- Consola
+- Switch
