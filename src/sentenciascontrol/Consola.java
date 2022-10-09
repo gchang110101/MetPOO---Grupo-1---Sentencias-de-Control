@@ -5,9 +5,19 @@
  */
 package sentenciascontrol;
 
+//import java.time.Clock;
+//import java.time.Instant;
+
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import modelos.MConsola;
+
 /**
  *
- * @author Armando J. López L.
+ * @author Armando J. López L. (actionPerforms hechos por Gabriel Chang)
  */
 public class Consola extends javax.swing.JInternalFrame {
 
@@ -127,6 +137,10 @@ public class Consola extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lEjer8)
+                        .addGap(3, 3, 3)
+                        .addComponent(bRealizar8))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lEjer1)
                         .addGap(3, 3, 3)
                         .addComponent(bRealizar1))
@@ -153,11 +167,7 @@ public class Consola extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lEjer7)
                         .addGap(3, 3, 3)
-                        .addComponent(bRealizar7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lEjer8)
-                        .addGap(3, 3, 3)
-                        .addComponent(bRealizar8)))
+                        .addComponent(bRealizar7)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -203,34 +213,213 @@ public class Consola extends javax.swing.JInternalFrame {
 
     private void bRealizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar2ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            System.out.println("Ingrese dos numeros para encontrar el residuo de la division entre ellos: ");
+            
+            System.out.print("Numero 1: ");
+            double numberInput1 = input.nextDouble();
+            
+            System.out.print("Numero 2: ");
+            double numberInput2 = input.nextDouble();
+            
+            double numberOutput = obj.residuoDiv(numberInput1, numberInput2);
+            
+            System.out.println("El residuo de la division " + numberInput1 + "/"
+                    + numberInput2 + " es = " + numberOutput);
+            JOptionPane.showMessageDialog(this, "El residuo de la división " 
+                    + numberInput1 + "/" + numberInput2 + "es = " + numberOutput, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar2ActionPerformed
 
     private void bRealizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar1ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            int numero;
+            double numeroEnBytes, bytesConversion = 1.099511627776;
+            
+            System.out.println("Ingrese el tamaño de su DD en Terabytes: ");
+            System.out.print("?: ");
+            numero = input.nextInt();
+            
+            numeroEnBytes = numero * bytesConversion;
+            
+            System.out.println("La conersion en bytes es: " + numeroEnBytes + "* 10^12");
+            
+            JOptionPane.showMessageDialog(this, "La conersion en bytes es: " + numeroEnBytes + "* 10^12");
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar1ActionPerformed
 
     private void bRealizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar3ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            double precios[] = new double[4];
+            double precioPagar;
+            double descuento;
+            
+            System.out.println("Ingrese los precios de los 4 productos: ");
+            
+            for(int i = 0; i < 4; i++) {
+                System.out.print("Precio #" + (i + 1) + " : $ ");
+                precios[i] = input.nextDouble();
+            }
+            
+            do {
+                System.out.println("Ingrese el descuento en formato decimal (Ejemplo: 0.15 para 15%)");
+                System.out.print("?: ");
+                descuento = input.nextDouble();
+            
+            } while(descuento > 1 || descuento < 0);
+            
+            precioPagar = obj.valorPagarProds(precios, descuento);
+            
+            System.out.println("Precio a pagar: $" + precioPagar);
+            JOptionPane.showMessageDialog(this, "Precio a pagar: $" + precioPagar, "Precio a pagar", JOptionPane.INFORMATION_MESSAGE);
+            
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar3ActionPerformed
 
     private void bRealizar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar4ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            int numero; 
+            
+            System.out.println("Ingrese una cifra para luego imprimir la descomposicion de sus digitos: ");
+            System.out.print("?: ");
+            numero = input.nextInt();
+            
+            obj.descomponerCifra(numero);
+            
+            JOptionPane.showMessageDialog(this, 
+                    "La descomposición se mostró en la consola", 
+                    "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar4ActionPerformed
 
     private void bRealizar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar5ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            
+            Scanner input = new Scanner(System.in);
+            
+            System.out.println("Ingrese un numero para encontrar su raiz cuadrada: ");
+            double numberInput = input.nextDouble();
+            
+            double numberOutput = obj.raizCuadrada(numberInput);
+            
+            System.out.println("La raiz cuadrada de " + numberInput + " es = " + numberOutput);
+            JOptionPane.showMessageDialog(this, "La raiz cuadrada de " + numberInput + " = " + numberOutput);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar5ActionPerformed
 
     private void bRealizar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar6ActionPerformed
         // TODO add your handling code here:
+        try {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            int b1, b2;
+            
+            do {
+                System.out.println("Ingrese valor booleano (0/1) de P y Q: ");
+                System.out.print("P: ");
+                b1 = input.nextInt();
+
+                System.out.print("Q: ");
+                b2 = input.nextInt();
+                
+            } while ((b1 > 1 || b1 < 0) || (b2 > 1 || b2 < 0));
+            
+            if(obj.mostrarTablaVerdad(b1, b2)) {
+                System.out.println("Verdad del Y: SI se cumple");
+                JOptionPane.showMessageDialog(this, "Verdad del Y: SI se cumple", "Tabla de verdad del Y", JOptionPane.INFORMATION_MESSAGE);
+                
+            } else {
+                System.out.println("Verdad del Y: NO cumple");
+                JOptionPane.showMessageDialog(this, "Verdad del Y: NO se cumple", "Tabla de verdad del Y", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+            
+        } catch (Exception ex) {
+            JOptionPane.showConfirmDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar6ActionPerformed
 
     private void bRealizar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar7ActionPerformed
         // TODO add your handling code here:
+        try  {
+            MConsola obj = new MConsola();
+            Scanner input = new Scanner(System.in);
+            
+            char caracteres[] = new char[6];
+            
+            System.out.println("Ingrese 6 caracteres: ");
+            
+            for(int i = 0; i < 6; i++) {
+                System.out.print("Caracter #" + (i + 1) + ": ");
+                caracteres[i] = input.nextLine().charAt(0);
+            }
+            
+            String concatenacion = obj.caraConcat(caracteres);
+            System.out.println("Concatenacion de los caracteres: " + concatenacion);
+            JOptionPane.showMessageDialog(this, "Concetenación de caracteres: " + concatenacion, "Concatenacion", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception ex) {
+            JOptionPane.showConfirmDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar7ActionPerformed
 
     private void bRealizar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar8ActionPerformed
         // TODO add your handling code here:
+        try {
+            /*
+            estaba probando diferentes métodos, pero el que usa las clases 
+            Instant y Clock, mostraba la hora incorrecta
+            
+            Clock cl = Clock.systemUTC();
+            Instant fechaSistema = Instant.now(cl);
+            */
+            
+            DateTimeFormatter formateador = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+            LocalDateTime fechaAhorita = LocalDateTime.now();  
+            
+            System.out.println("Fecha actual del sistema:");  
+            System.out.println(formateador.format(fechaAhorita));
+            
+            //System.out.println("Fecha del sistema (clase Instant y Clock): " + fechaSistema);
+            
+            JOptionPane.showMessageDialog(this, "Fecha actual del sistema: " + formateador.format(fechaAhorita), "Fecha del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_bRealizar8ActionPerformed
 
 
