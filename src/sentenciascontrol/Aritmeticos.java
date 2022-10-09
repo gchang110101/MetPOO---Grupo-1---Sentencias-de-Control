@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import java.awt.HeadlessException;
+import static java.lang.Math.pow;
 import javax.swing.JOptionPane;
 import modelos.MAritmetico;
 
@@ -99,6 +101,11 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         lsuma2.setText("+");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         lresta2.setText("-");
 
@@ -151,6 +158,11 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         la5.setText("a=");
 
         bCalcular5.setText("Calcular");
+        bCalcular5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular5ActionPerformed(evt);
+            }
+        });
 
         lb5.setText("b=");
 
@@ -390,6 +402,35 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_bCalcular3ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // TODO add your handling code here:
+        try{
+            double num1 = Double.parseDouble(tfNum13.getText());
+            double num2 = Double.parseDouble(tfNum14.getText());
+            double resp = aritmetico.numPower(num1, num2);
+            JOptionPane.showMessageDialog(this, "El resultado de la potencia es: "+resp,
+                    "Respuesta", JOptionPane.INFORMATION_MESSAGE);
+        } catch (HeadlessException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Digite los números", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
+    private void bCalcular5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular5ActionPerformed
+        // TODO add your handling code here:
+        try{
+            double num1 = Double.parseDouble(tfNum15.getText());
+            double num2 = Double.parseDouble(tfNum16.getText());
+            double num3 = Double.parseDouble(tfNum17.getText());
+            double powerOp =0;
+            double result =0;
+            double resp = aritmetico.numPowerDiv(num1, num2, num3, powerOp, result);
+            JOptionPane.showMessageDialog(this, "El resultado de la operacion es: "+resp,
+                    "Respuesta", JOptionPane.INFORMATION_MESSAGE);
+        } catch(NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Digite los numeros correctamente", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_bCalcular5ActionPerformed
     
     
 

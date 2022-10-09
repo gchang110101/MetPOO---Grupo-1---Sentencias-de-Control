@@ -23,5 +23,14 @@ public class MAritmetico {
    public double calcularExpresion2(double num1, double num2, double num3, double num4, double num5){
        return (num1+num2)*num3-(num4/num5);
    }
-           
+   
+   public double numPower (double num1, double num2) {
+       return java.lang.Math.pow(num1, num2);
+   }
+   
+   public double numPowerDiv (double num1, double num2, double num3, double powerOp, double result) {
+       powerOp = java.lang.Math.pow(num1, num2);
+       result = powerOp * (num2/num3);
+       return result;
+   }
 }
