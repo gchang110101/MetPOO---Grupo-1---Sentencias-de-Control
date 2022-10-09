@@ -59,10 +59,10 @@ public class MConsola {
         
         System.out.println("Descomposicion de digitos de la cifra ingresada: ");
         
-        
+        /*
         for(int j = 0; j < descomposicion.size(); j++) {
             System.out.println(descomposicion.get(j));
-        }
+        }*/
         
         
         for(int j: descomposicion) {
