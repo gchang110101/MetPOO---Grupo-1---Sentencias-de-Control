@@ -1,5 +1,13 @@
 # MetPOO---Grupo-1---Sentencias-de-Control
 
-Commit 1: Gabriel Chang (creación del repositorio)
+Avances de Integrantes del Grupo:
 
-Commit 2: Megan Bougle (primera parte de Aritméticos)
+Megan Bougle - Aritméticos Pt.1
+
+Camilo Herradora - Aritméticos Pt.2
+
+Gabriel Chang - Consolas
+
+Carlos Gurdian - Lógicos
+
+Laura Cuevas - Switch
