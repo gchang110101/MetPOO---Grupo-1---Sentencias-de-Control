@@ -5,12 +5,18 @@
  */
 package sentenciascontrol;
 
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import modelos.MSwitch;
+
 /**
  *
  * @author Armando J. López L.
  */
 public class Switch extends javax.swing.JInternalFrame {
 
+    MSwitch s = new MSwitch ();
+    Scanner leer = new Scanner(System.in);
     /**
      * Creates new form Switch
      */
@@ -69,14 +75,29 @@ public class Switch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(taEjer1);
 
         bMostrar1.setText("Mostar");
+        bMostrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar1ActionPerformed(evt);
+            }
+        });
 
         lEjer2.setText("2. Según el número del mes, determine la época del año");
 
         bMostrar2.setText("Mostar");
+        bMostrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar2ActionPerformed(evt);
+            }
+        });
 
         lEjer3.setText("3. Según el número del mes, determine el número de días");
 
         bMostrar3.setText("Mostar");
+        bMostrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar3ActionPerformed(evt);
+            }
+        });
 
         lEjer4.setText("4. Realice la tarea que indica la selección");
 
@@ -89,6 +110,11 @@ public class Switch extends javax.swing.JInternalFrame {
         rbOtro.setText("Mostrar el menor de N números");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEstadoCivilLayout = new javax.swing.GroupLayout(pEstadoCivil);
         pEstadoCivil.setLayout(pEstadoCivilLayout);
@@ -123,6 +149,11 @@ public class Switch extends javax.swing.JInternalFrame {
         lEjer5.setText("5. Determinar si el número entero es par o impar");
 
         bDeterminar5.setText("Determinar");
+        bDeterminar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeterminar5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +224,105 @@ public class Switch extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
+        // TODO add your handling code here:
+         try {
+            String mes = tfMes1.getText();
+            String resp = s.diasMes(mes);
+            JOptionPane.showMessageDialog(this, resp, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_bMostrar1ActionPerformed
+
+    private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            int mes = Integer.parseInt(tfMes2.getText());
+            String resp = s.epocaMes(mes);
+            JOptionPane.showMessageDialog(this, resp, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_bMostrar2ActionPerformed
+
+    private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
+        // TODO add your handling code here:
+         try {
+            int mes = Integer.parseInt(tfMes3.getText());
+            String resp = s.diasMes(mes);
+            JOptionPane.showMessageDialog(this, resp, "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_bMostrar3ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // TODO add your handling code here:
+        int op = 0;
+
+        if (rbSoltero.isSelected()) {
+            op = 1;
+        } else if (rbCasado.isSelected()) {
+            op = 2;
+        } else if (rbOtro.isSelected()) {
+            op = 3;
+        }
+
+        switch (op) {
+            case 1:
+                System.out.println("Digite un numero: ");
+                int numero = leer.nextInt();
+                double respuesta = s.calcularRaiz(numero);
+                System.out.println("La raiz cuadrada del numero es: ");
+                System.out.println(respuesta);
+                break;
+
+            case 2:
+                System.out.println("Digite el primer numero: ");
+                double numero1 = leer.nextDouble();
+                System.out.println("Digite el segundo numero: ");
+                double numero2 = leer.nextDouble();
+                System.out.println("El residuo del numero es: ");
+                double res = s.calcularResiduo(numero1, numero2);
+                System.out.println(res);
+                break;
+
+            case 3:
+                System.out.println("Digite la cantidad de numeros: ");
+                int n = leer.nextInt();
+                String resp = s.menorNumero(n);
+                System.out.println(resp);
+                break;
+
+            default:
+                System.out.println("No existe esta opción");
+                break;
+
+        }
+
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
+    private void bDeterminar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeterminar5ActionPerformed
+        // TODO add your handling code here:
+         int numero = Integer.parseInt(tfNum5.getText());
+        int residuo = s.parImpar(numero);
+
+        switch (residuo) {
+            case 0:
+                JOptionPane.showMessageDialog(this, "Es par", "Información", JOptionPane.INFORMATION_MESSAGE);
+                break;
+
+            case 1:
+                JOptionPane.showMessageDialog(this, "Es impar", "Información", JOptionPane.INFORMATION_MESSAGE);
+                break;
+
+            default:
+                JOptionPane.showMessageDialog(this, "Error, no se puede verificar", "Información", JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
+    }//GEN-LAST:event_bDeterminar5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

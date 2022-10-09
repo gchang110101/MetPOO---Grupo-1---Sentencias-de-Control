@@ -253,6 +253,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="tfNum1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNum1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer1">
       <Properties>
@@ -461,6 +464,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bVerificar10ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

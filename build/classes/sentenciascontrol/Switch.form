@@ -151,6 +151,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer2">
       <Properties>
@@ -163,6 +166,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer3">
       <Properties>
@@ -175,6 +181,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer4">
       <Properties>
@@ -247,6 +256,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Calcular"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcular4ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -261,6 +273,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Determinar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDeterminar5ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
